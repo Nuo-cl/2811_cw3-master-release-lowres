@@ -34,7 +34,7 @@ private slots:
     void clicked();
 
 signals:
-    void jumpTo(TheButtonInfo*);
+    void jumpTo(TheButtonInfo*); 
 
 };
 

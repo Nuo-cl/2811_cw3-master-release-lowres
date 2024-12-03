@@ -12,5 +12,5 @@ void TheButton::init(TheButtonInfo* i) {
 
 
 void TheButton::clicked() {
-    emit jumpTo(info);
+    emit jumpTo(info); // tell the player to play this video
 }
