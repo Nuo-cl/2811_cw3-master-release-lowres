@@ -1,0 +1,11 @@
+release/the_button.o
+release/the_player.o
+release/button_navigator.o
+release/next_button.o
+release/previous_button.o
+release/tomeo.o
+release/moc_the_button.o
+release/moc_the_player.o
+release/moc_next_button.o
+release/moc_previous_button.o
+release/moc_button_navigator.o

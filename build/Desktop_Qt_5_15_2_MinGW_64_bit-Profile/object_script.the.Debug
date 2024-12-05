@@ -1,0 +1,11 @@
+debug/the_button.o
+debug/the_player.o
+debug/button_navigator.o
+debug/next_button.o
+debug/previous_button.o
+debug/tomeo.o
+debug/moc_the_button.o
+debug/moc_the_player.o
+debug/moc_next_button.o
+debug/moc_previous_button.o
+debug/moc_button_navigator.o

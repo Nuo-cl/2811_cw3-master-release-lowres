@@ -32,3 +32,13 @@ void ThePlayer::jumpTo (TheButtonInfo* button) {
     setMedia( * button -> url);
     play();
 }
+
+void ThePlayer::playNext() {
+    currentIndex = (currentIndex + 1) % buttons -> size();
+    jumpTo(buttons -> at(currentIndex) -> info);
+}
+
+void ThePlayer::playPrevious() {
+    currentIndex = (currentIndex - 1 + buttons -> size()) % buttons -> size();
+    jumpTo(buttons -> at(currentIndex) -> info);
+}

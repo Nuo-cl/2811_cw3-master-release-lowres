@@ -25,11 +25,28 @@
 #include <QtCore/QDirIterator>
 #include "the_player.h"
 #include "the_button.h"
+#include "button_navigator.h"
+// #include "control_buttons.h"
+#include "previous_button.h"
+#include "next_button.h"
+
+// Function to rearrange buttons
+// void rearrangeButtons(std::vector<TheButton*>& buttons, std::vector<TheButtonInfo>& videos, int startIndex, int buttonsPerPage) {
+//     for (int i = 0; i < buttons.size(); ++i) {
+//         if (i >= startIndex && i < startIndex + buttonsPerPage) {
+//             buttons[i]->init(&videos.at(i));
+//             buttons[i]->show();
+//         } else {
+//             buttons[i]->hide();
+//         }
+//     }
+// }
 
 // read in videos and thumbnails to this directory
 std::vector<TheButtonInfo> getInfoIn (std::string loc) {
 
-    std::vector<TheButtonInfo> out =  std::vector<TheButtonInfo>();
+    // std::vector<TheButtonInfo> out =  std::vector<TheButtonInfo>();
+    std::vector<TheButtonInfo> out;
     QDir dir(QString::fromStdString(loc) );
     QDirIterator it(dir);
 
@@ -100,6 +117,28 @@ int main(int argc, char *argv[]) {
     QWidget *buttonWidget = new QWidget();
     // a list of the buttons
     std::vector<TheButton*> buttons;
+
+    // Create the ButtonNavigator
+    ButtonNavigator* navigator = new ButtonNavigator();
+    navigator->setButtons(&buttons);
+    // Create a layout for the navigator
+    QVBoxLayout* naviLayout = new QVBoxLayout();
+    naviLayout->addWidget(navigator);
+    // Add a new widget next to the buttonwidget for the navigator
+    QWidget* navigatorWidget = new QWidget();
+    navigatorWidget->setLayout(naviLayout);
+
+    // Create the control buttons
+    PreviousButton* previousButton = new PreviousButton(player, nullptr);
+    NextButton* nextButton = new NextButton(player, nullptr);
+    // Create a layout for the control buttons
+    QHBoxLayout* controlLayout = new QHBoxLayout();
+    controlLayout->addWidget(previousButton);
+    controlLayout->addWidget(nextButton);
+    // Add a new widget next to the buttonwidget for the control buttons
+    QWidget* controlWidget = new QWidget();
+    controlWidget->setLayout(controlLayout);
+
     // the buttons are arranged horizontally
     QHBoxLayout *layout = new QHBoxLayout();
     buttonWidget->setLayout(layout);
@@ -115,7 +154,7 @@ int main(int argc, char *argv[]) {
     }
 
     // tell the player what buttons and videos are available
-    player->setContent(&buttons, & videos);
+    player->setContent(&buttons, &videos);
 
     // create the main window and layout
     QWidget window;
@@ -127,6 +166,21 @@ int main(int argc, char *argv[]) {
     // add the video and the buttons to the top level widget
     top->addWidget(videoWidget);
     top->addWidget(buttonWidget);
+    top->addWidget(navigatorWidget);
+    top->addWidget(controlWidget);
+
+    // // Connect the navigator signals to the rearrange function
+    // QObject::connect(navigator, &ButtonNavigator::next, [&buttons, &videos]() {
+    //     static int currentIndex = 0;
+    //     currentIndex += 4;
+    //     rearrangeButtons(buttons, videos, currentIndex, 4);
+    // });
+
+    // QObject::connect(navigator, &ButtonNavigator::previous, [&buttons, &videos]() {
+    //     static int currentIndex = 0;
+    //     currentIndex -= 4;
+    //     rearrangeButtons(buttons, videos, currentIndex, 4);
+    // });
 
     // showtime!
     window.show();

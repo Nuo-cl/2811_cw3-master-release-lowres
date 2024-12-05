@@ -21,16 +21,17 @@ private:
     std::vector<TheButton*>* buttons;
     QTimer* mTimer;
     long updateCount = 0;
+    int currentIndex = 0;
 
 public:
     ThePlayer() : QMediaPlayer(NULL) {
-        setVolume(0); // be slightly less annoying
-        connect (this, SIGNAL (stateChanged(QMediaPlayer::State)), this, SLOT (playStateChanged(QMediaPlayer::State)) );
+        setVolume(0.5); // be slightly less annoying
+        connect (this, SIGNAL (stateChanged(QMediaPlayer::State)), this, SLOT (playStateChanged(QMediaPlayer::State)) ); // if state changes, run playStateChanged
 
         mTimer = new QTimer(NULL);
-        mTimer->setInterval(1000); // 1000ms is one second between ...
+        mTimer->setInterval(1000); // 1000ms is one second between each shuffle
         mTimer->start();
-        connect( mTimer, SIGNAL (timeout()), SLOT ( shuffle() ) ); // ...running shuffle method
+        // connect( mTimer, SIGNAL (timeout()), SLOT ( shuffle() ) ); // ...running shuffle method
     }
 
     // all buttons have been setup, store pointers here
@@ -47,6 +48,8 @@ public slots:
 
     // start playing this ButtonInfo
     void jumpTo (TheButtonInfo* button);
+    void playNext();
+    void playPrevious();
 };
 
 #endif //CW2_THE_PLAYER_H
