@@ -187,7 +187,7 @@ int main(int argc, char *argv[]) {
     top->addWidget(pauseButton);
     top->addWidget(volumeButton);
     top->addWidget(buttonWidget);
-    top->addWidget(navigatorWidget);
+    // top->addWidget(navigatorWidget);
     top->addWidget(controlWidget);
 
     // // Connect the navigator signals to the rearrange function
