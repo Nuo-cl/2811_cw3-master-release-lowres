@@ -42,3 +42,11 @@ void ThePlayer::playPrevious() {
     currentIndex = (currentIndex - 1 + buttons -> size()) % buttons -> size();
     jumpTo(buttons -> at(currentIndex) -> info);
 }
+
+void ThePlayer::handlePauseToggle(bool paused) {
+    if (paused) {
+        pause();
+    } else {
+        play();
+    }
+}

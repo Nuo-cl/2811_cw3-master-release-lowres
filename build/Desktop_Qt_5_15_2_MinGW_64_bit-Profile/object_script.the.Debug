@@ -4,8 +4,14 @@ debug/button_navigator.o
 debug/next_button.o
 debug/previous_button.o
 debug/tomeo.o
+debug/pause_toggle_button.o
+debug/timeline_slider.o
+debug/volume_button.o
 debug/moc_the_button.o
 debug/moc_the_player.o
 debug/moc_next_button.o
 debug/moc_previous_button.o
 debug/moc_button_navigator.o
+debug/moc_pause_toggle_button.o
+debug/moc_timeline_slider.o
+debug/moc_volume_button.o

@@ -29,6 +29,10 @@
 // #include "control_buttons.h"
 #include "previous_button.h"
 #include "next_button.h"
+#include "pause_toggle_button.h"
+#include <QObject>
+#include "timeline_slider.h"
+#include "volume_button.h"
 
 // Function to rearrange buttons
 // void rearrangeButtons(std::vector<TheButton*>& buttons, std::vector<TheButtonInfo>& videos, int startIndex, int buttonsPerPage) {
@@ -163,8 +167,25 @@ int main(int argc, char *argv[]) {
     window.setWindowTitle("tomeo");
     window.setMinimumSize(800, 680);
 
+    // Create and add the pause button
+    PauseToggleButton *pauseButton = new PauseToggleButton(&window);
+    pauseButton->connect(pauseButton, &PauseToggleButton::toggled, player, &ThePlayer::handlePauseToggle);
+   
+    // Create and add the timeline slider
+    TimelineSlider *timelineSlider = new TimelineSlider(&window);
+    timelineSlider->connect(player, &QMediaPlayer::durationChanged, timelineSlider, &TimelineSlider::setDuration);
+    timelineSlider->connect(player, &QMediaPlayer::positionChanged, timelineSlider, &TimelineSlider::setPosition);
+    timelineSlider->connect(timelineSlider, &TimelineSlider::sliderMoved, player, &QMediaPlayer::setPosition);
+
+    // Create and add the volume button
+    VolumeButton *volumeButton = new VolumeButton(&window);
+    volumeButton->connect(volumeButton, &VolumeButton::volumeChanged, player, &QMediaPlayer::setVolume);
+    
     // add the video and the buttons to the top level widget
     top->addWidget(videoWidget);
+    top->addWidget(timelineSlider);
+    top->addWidget(pauseButton);
+    top->addWidget(volumeButton);
     top->addWidget(buttonWidget);
     top->addWidget(navigatorWidget);
     top->addWidget(controlWidget);
@@ -184,6 +205,7 @@ int main(int argc, char *argv[]) {
 
     // showtime!
     window.show();
+
 
     // wait for the app to terminate
     return app.exec();

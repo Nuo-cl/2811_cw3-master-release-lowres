@@ -4,8 +4,14 @@ release/button_navigator.o
 release/next_button.o
 release/previous_button.o
 release/tomeo.o
+release/pause_toggle_button.o
+release/timeline_slider.o
+release/volume_button.o
 release/moc_the_button.o
 release/moc_the_player.o
 release/moc_next_button.o
 release/moc_previous_button.o
 release/moc_button_navigator.o
+release/moc_pause_toggle_button.o
+release/moc_timeline_slider.o
+release/moc_volume_button.o
