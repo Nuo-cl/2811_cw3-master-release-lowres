@@ -55,33 +55,51 @@ SOURCES       = ..\..\the_button.cpp \
 		..\..\button_navigator.cpp \
 		..\..\next_button.cpp \
 		..\..\previous_button.cpp \
-		..\..\tomeo.cpp debug\moc_the_button.cpp \
+		..\..\tomeo.cpp \
+		..\..\pause_toggle_button.cpp \
+		..\..\timeline_slider.cpp \
+		..\..\volume_button.cpp debug\moc_the_button.cpp \
 		debug\moc_the_player.cpp \
 		debug\moc_next_button.cpp \
 		debug\moc_previous_button.cpp \
-		debug\moc_button_navigator.cpp
+		debug\moc_button_navigator.cpp \
+		debug\moc_pause_toggle_button.cpp \
+		debug\moc_timeline_slider.cpp \
+		debug\moc_volume_button.cpp
 OBJECTS       = debug/the_button.o \
 		debug/the_player.o \
 		debug/button_navigator.o \
 		debug/next_button.o \
 		debug/previous_button.o \
 		debug/tomeo.o \
+		debug/pause_toggle_button.o \
+		debug/timeline_slider.o \
+		debug/volume_button.o \
 		debug/moc_the_button.o \
 		debug/moc_the_player.o \
 		debug/moc_next_button.o \
 		debug/moc_previous_button.o \
-		debug/moc_button_navigator.o
+		debug/moc_button_navigator.o \
+		debug/moc_pause_toggle_button.o \
+		debug/moc_timeline_slider.o \
+		debug/moc_volume_button.o
 
 DIST          =  ..\..\the_button.h \
 		..\..\the_player.h \
 		..\..\next_button.h \
 		..\..\previous_button.h \
-		..\..\button_navigator.h ..\..\the_button.cpp \
+		..\..\button_navigator.h \
+		..\..\pause_toggle_button.h \
+		..\..\timeline_slider.h \
+		..\..\volume_button.h ..\..\the_button.cpp \
 		..\..\the_player.cpp \
 		..\..\button_navigator.cpp \
 		..\..\next_button.cpp \
 		..\..\previous_button.cpp \
-		..\..\tomeo.cpp
+		..\..\tomeo.cpp \
+		..\..\pause_toggle_button.cpp \
+		..\..\timeline_slider.cpp \
+		..\..\volume_button.cpp
 QMAKE_TARGET  = the
 DESTDIR        = debug\ #avoid trailing-slash linebreak
 TARGET         = the.exe
@@ -102,10 +120,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) the.zip $(SOURCES) $(DIST) ..\..\the.pro F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\spec_pre.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\qdevice.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\device_config.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\common\sanitize.conf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\common\gcc-base.conf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\common\g++-base.conf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\common\angle.conf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\win32\windows_vulkan_sdk.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\common\windows-vulkan.conf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\common\g++-win32.conf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\common\windows-desktop.conf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\qconfig.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3danimation.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3danimation_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dcore.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dcore_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dextras.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dextras_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dinput.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dinput_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dlogic.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dlogic_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquick.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquick_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickanimation.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickanimation_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickextras.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickextras_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickinput.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickinput_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickrender.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickrender_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickscene2d.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickscene2d_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3drender.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3drender_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_accessibility_support_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axbase.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axbase_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axcontainer.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axcontainer_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axserver.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axserver_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_bluetooth.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_bluetooth_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_bootstrap_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_concurrent.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_concurrent_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_core.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_core_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_dbus.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_dbus_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_designer.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_designer_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_designercomponents_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_edid_support_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_egl_support_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_fb_support_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_gamepad.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_gamepad_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_gui.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_gui_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_help.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_help_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_location.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_location_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_multimedia.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_multimedia_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_multimediawidgets.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_network.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_network_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_nfc.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_nfc_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_opengl.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_opengl_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_openglextensions.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_openglextensions_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_packetprotocol_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_positioning.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_positioning_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_positioningquick.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_positioningquick_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_printsupport.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_printsupport_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qml.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qml_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmldebug_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmldevtools_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmlmodels.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmlmodels_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmltest.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmltest_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmlworkerscript.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quick.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quick_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickcontrols2.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickparticles_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickshapes_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quicktemplates2.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickwidgets.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickwidgets_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_remoteobjects.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_remoteobjects_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_repparser.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_repparser_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_scxml.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_scxml_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_sensors.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_sensors_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_serialbus.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_serialbus_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_serialport.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_serialport_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_sql.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_sql_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_svg.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_svg_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_testlib.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_testlib_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_texttospeech.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_texttospeech_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_theme_support_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_uiplugin.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_uitools.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_uitools_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_vulkan_support_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_webchannel.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_webchannel_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_websockets.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_websockets_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_widgets.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_widgets_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_winextras.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_winextras_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_xml.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_xml_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_xmlpatterns.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_zlib_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\qt_functions.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\qt_config.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\win32-g++\qmake.conf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\spec_post.prf .qmake.stash F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\exclusive_builds.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\toolchain.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\default_pre.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\win32\default_pre.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\resolve_config.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\exclusive_builds_post.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\default_post.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\build_pass.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\resolve_target.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\win32\separate_debug_info.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\qtquickcompiler.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\qml_debug.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\precompile_header.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\warn_on.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\qt.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\resources_functions.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\resources.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\moc.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\win32\opengl.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\uic.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\qmake_use.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\file_copies.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\win32\windows.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\testcase_targets.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\exceptions.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\yacc.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\lex.prf ..\..\the.pro F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\lib\Qt5MultimediaWidgets.prl F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\lib\Qt5Widgets.prl F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\lib\Qt5Multimedia.prl F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\lib\Qt5Gui.prl F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\lib\Qt5Network.prl F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\lib\Qt5Core.prl F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\lib\qtmain.prl    F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\data\dummy.cpp ..\..\the_button.h ..\..\the_player.h ..\..\next_button.h ..\..\previous_button.h ..\..\button_navigator.h  ..\..\the_button.cpp ..\..\the_player.cpp ..\..\button_navigator.cpp ..\..\next_button.cpp ..\..\previous_button.cpp ..\..\tomeo.cpp     
+	$(ZIP) the.zip $(SOURCES) $(DIST) ..\..\..\..\the.pro F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\spec_pre.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\qdevice.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\device_config.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\common\sanitize.conf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\common\gcc-base.conf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\common\g++-base.conf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\common\angle.conf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\win32\windows_vulkan_sdk.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\common\windows-vulkan.conf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\common\g++-win32.conf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\common\windows-desktop.conf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\qconfig.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3danimation.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3danimation_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dcore.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dcore_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dextras.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dextras_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dinput.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dinput_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dlogic.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dlogic_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquick.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquick_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickanimation.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickanimation_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickextras.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickextras_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickinput.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickinput_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickrender.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickrender_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickscene2d.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3dquickscene2d_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3drender.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_3drender_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_accessibility_support_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axbase.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axbase_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axcontainer.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axcontainer_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axserver.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_axserver_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_bluetooth.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_bluetooth_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_bootstrap_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_concurrent.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_concurrent_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_core.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_core_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_dbus.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_dbus_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_designer.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_designer_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_designercomponents_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_edid_support_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_egl_support_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_fb_support_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_gamepad.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_gamepad_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_gui.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_gui_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_help.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_help_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_location.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_location_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_multimedia.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_multimedia_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_multimediawidgets.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_network.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_network_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_nfc.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_nfc_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_opengl.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_opengl_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_openglextensions.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_openglextensions_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_packetprotocol_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_positioning.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_positioning_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_positioningquick.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_positioningquick_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_printsupport.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_printsupport_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qml.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qml_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmldebug_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmldevtools_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmlmodels.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmlmodels_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmltest.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmltest_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmlworkerscript.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quick.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quick_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickcontrols2.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickparticles_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickshapes_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quicktemplates2.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickwidgets.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_quickwidgets_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_remoteobjects.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_remoteobjects_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_repparser.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_repparser_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_scxml.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_scxml_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_sensors.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_sensors_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_serialbus.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_serialbus_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_serialport.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_serialport_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_sql.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_sql_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_svg.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_svg_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_testlib.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_testlib_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_texttospeech.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_texttospeech_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_theme_support_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_uiplugin.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_uitools.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_uitools_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_vulkan_support_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_webchannel.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_webchannel_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_websockets.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_websockets_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_widgets.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_widgets_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_winextras.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_winextras_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_xml.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_xml_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_xmlpatterns.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\modules\qt_lib_zlib_private.pri F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\qt_functions.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\qt_config.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\win32-g++\qmake.conf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\spec_post.prf .qmake.stash F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\exclusive_builds.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\toolchain.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\default_pre.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\win32\default_pre.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\resolve_config.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\exclusive_builds_post.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\default_post.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\build_pass.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\resolve_target.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\win32\separate_debug_info.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\qtquickcompiler.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\qml_debug.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\precompile_header.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\warn_on.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\qt.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\resources_functions.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\resources.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\moc.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\win32\opengl.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\uic.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\qmake_use.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\file_copies.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\win32\windows.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\testcase_targets.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\exceptions.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\yacc.prf F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\lex.prf ..\..\the.pro F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\lib\Qt5MultimediaWidgets.prl F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\lib\Qt5Widgets.prl F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\lib\Qt5Multimedia.prl F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\lib\Qt5Gui.prl F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\lib\Qt5Network.prl F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\lib\Qt5Core.prl F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\lib\qtmain.prl    F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\data\dummy.cpp ..\..\the_button.h ..\..\the_player.h ..\..\next_button.h ..\..\previous_button.h ..\..\button_navigator.h ..\..\pause_toggle_button.h ..\..\timeline_slider.h ..\..\volume_button.h  ..\..\the_button.cpp ..\..\the_player.cpp ..\..\button_navigator.cpp ..\..\next_button.cpp ..\..\previous_button.cpp ..\..\tomeo.cpp ..\..\pause_toggle_button.cpp ..\..\timeline_slider.cpp ..\..\volume_button.cpp     
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\the_button.o debug\the_player.o debug\button_navigator.o debug\next_button.o debug\previous_button.o debug\tomeo.o debug\moc_the_button.o debug\moc_the_player.o debug\moc_next_button.o debug\moc_previous_button.o debug\moc_button_navigator.o
+	-$(DEL_FILE) debug\the_button.o debug\the_player.o debug\button_navigator.o debug\next_button.o debug\previous_button.o debug\tomeo.o debug\pause_toggle_button.o debug\timeline_slider.o debug\volume_button.o debug\moc_the_button.o debug\moc_the_player.o debug\moc_next_button.o debug\moc_previous_button.o debug\moc_button_navigator.o debug\moc_pause_toggle_button.o debug\moc_timeline_slider.o debug\moc_volume_button.o
 
 distclean: clean 
 	-$(DEL_FILE) F:\Repositories\UI_Lab\2811_cw3-master-release-lowres\build\Desktop_Qt_5_15_2_MinGW_64_bit-Profile\debug\the.exe.debug .qmake.stash
@@ -130,9 +148,9 @@ compiler_moc_predefs_clean:
 debug/moc_predefs.h: F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/mkspecs/features/data/dummy.cpp
 	g++ -fno-keep-inline-dllexport -g -std=gnu++11 -Wall -Wextra -Wextra -dM -E -o debug\moc_predefs.h F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\mkspecs\features\data\dummy.cpp
 
-compiler_moc_header_make_all: debug/moc_the_button.cpp debug/moc_the_player.cpp debug/moc_next_button.cpp debug/moc_previous_button.cpp debug/moc_button_navigator.cpp
+compiler_moc_header_make_all: debug/moc_the_button.cpp debug/moc_the_player.cpp debug/moc_next_button.cpp debug/moc_previous_button.cpp debug/moc_button_navigator.cpp debug/moc_pause_toggle_button.cpp debug/moc_timeline_slider.cpp debug/moc_volume_button.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) debug\moc_the_button.cpp debug\moc_the_player.cpp debug\moc_next_button.cpp debug\moc_previous_button.cpp debug\moc_button_navigator.cpp
+	-$(DEL_FILE) debug\moc_the_button.cpp debug\moc_the_player.cpp debug\moc_next_button.cpp debug\moc_previous_button.cpp debug\moc_button_navigator.cpp debug\moc_pause_toggle_button.cpp debug\moc_timeline_slider.cpp debug\moc_volume_button.cpp
 debug/moc_the_button.cpp: ../../the_button.h \
 		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/QPushButton \
 		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qpushbutton.h \
@@ -783,6 +801,376 @@ debug/moc_button_navigator.cpp: ../../button_navigator.h \
 		debug/moc_predefs.h \
 		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/bin/moc.exe
 	F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include F:/Repositories/UI_Lab/2811_cw3-master-release-lowres/build/Desktop_Qt_5_15_2_MinGW_64_bit-Profile/debug/moc_predefs.h -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/mkspecs/win32-g++ -IF:/Repositories/UI_Lab/2811_cw3-master-release-lowres -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimediaWidgets -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtANGLE -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtNetwork -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore -I. -IF:/msy2/ucrt64/include/c++/13.2.0 -IF:/msy2/ucrt64/include/c++/13.2.0/x86_64-w64-mingw32 -IF:/msy2/ucrt64/include/c++/13.2.0/backward -IF:/msy2/ucrt64/lib/gcc/x86_64-w64-mingw32/13.2.0/include -IF:/msy2/ucrt64/include -IF:/msy2/ucrt64/lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed ..\..\button_navigator.h -o debug\moc_button_navigator.cpp
+
+debug/moc_pause_toggle_button.cpp: ../../pause_toggle_button.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/QPushButton \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qpushbutton.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qtwidgetsglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtguiglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qconfig-bootstrapped.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qconfig.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qtcore-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsystemdetection.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qprocessordetection.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcompilerdetection.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qtypeinfo.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsysinfo.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qlogging.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qflags.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qbasicatomic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic_bootstrap.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qgenericatomic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic_cxx11.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic_msvc.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qglobalstatic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmutex.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qnumeric.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qversiontagging.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtgui-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qtwidgets-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qabstractbutton.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qicon.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsize.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qnamespace.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmargins.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qlist.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qalgorithms.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qiterator.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qrefcount.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qarraydata.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qhashfunctions.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstring.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qchar.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qbytearray.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringliteral.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringalgorithms.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringview.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringbuilder.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qpair.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qvector.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcontainertools_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qpoint.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qbytearraylist.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringlist.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qregexp.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringmatcher.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpixmap.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpaintdevice.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qwindowdefs.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobjectdefs.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobjectdefs_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qwindowdefs_win.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qrect.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qcolor.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qrgb.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qrgba64.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsharedpointer.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qshareddata.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qhash.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsharedpointer_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobject.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcoreevent.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qscopedpointer.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmetatype.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qvarlengtharray.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcontainerfwd.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobject_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qimage.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpixelformat.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtransform.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qmatrix.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpolygon.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qregion.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qdatastream.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qiodevice.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qline.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qkeysequence.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qwidget.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpalette.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qbrush.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qfont.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qfontmetrics.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qfontinfo.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qsizepolicy.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qcursor.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qevent.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qvariant.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmap.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qdebug.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qtextstream.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qlocale.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qset.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcontiguouscache.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qurl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qurlquery.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qfile.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qfiledevice.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qvector2d.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
+		debug/moc_predefs.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/bin/moc.exe
+	F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include F:/Repositories/UI_Lab/2811_cw3-master-release-lowres/build/Desktop_Qt_5_15_2_MinGW_64_bit-Profile/debug/moc_predefs.h -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/mkspecs/win32-g++ -IF:/Repositories/UI_Lab/2811_cw3-master-release-lowres -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimediaWidgets -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtANGLE -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtNetwork -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore -I. -IF:/msy2/ucrt64/include/c++/13.2.0 -IF:/msy2/ucrt64/include/c++/13.2.0/x86_64-w64-mingw32 -IF:/msy2/ucrt64/include/c++/13.2.0/backward -IF:/msy2/ucrt64/lib/gcc/x86_64-w64-mingw32/13.2.0/include -IF:/msy2/ucrt64/include -IF:/msy2/ucrt64/lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed ..\..\pause_toggle_button.h -o debug\moc_pause_toggle_button.cpp
+
+debug/moc_timeline_slider.cpp: ../../timeline_slider.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/QSlider \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qslider.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qtwidgetsglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtguiglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qconfig-bootstrapped.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qconfig.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qtcore-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsystemdetection.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qprocessordetection.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcompilerdetection.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qtypeinfo.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsysinfo.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qlogging.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qflags.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qbasicatomic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic_bootstrap.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qgenericatomic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic_cxx11.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic_msvc.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qglobalstatic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmutex.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qnumeric.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qversiontagging.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtgui-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qtwidgets-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qabstractslider.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qwidget.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qwindowdefs.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobjectdefs.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qnamespace.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobjectdefs_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qwindowdefs_win.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobject.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstring.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qchar.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qbytearray.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qrefcount.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qarraydata.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringliteral.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringalgorithms.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringview.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringbuilder.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qlist.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qalgorithms.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qiterator.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qhashfunctions.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qpair.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qvector.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcontainertools_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qpoint.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qbytearraylist.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringlist.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qregexp.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringmatcher.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcoreevent.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qscopedpointer.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmetatype.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qvarlengtharray.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcontainerfwd.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobject_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmargins.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpaintdevice.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qrect.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsize.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpalette.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qcolor.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qrgb.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qrgba64.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qbrush.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qmatrix.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpolygon.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qregion.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qdatastream.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qiodevice.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qline.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtransform.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qimage.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpixelformat.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpixmap.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsharedpointer.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qshareddata.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qhash.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsharedpointer_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qfont.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qfontmetrics.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qfontinfo.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qsizepolicy.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qcursor.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qkeysequence.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qevent.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qvariant.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmap.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qdebug.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qtextstream.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qlocale.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qset.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcontiguouscache.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qurl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qurlquery.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qfile.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qfiledevice.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qvector2d.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/QMediaPlayer \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmediaplayer.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qtmultimediaglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qtmultimedia-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmediaobject.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmultimedia.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmediacontent.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmediaresource.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtNetwork/qnetworkrequest.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtNetwork/qtnetworkglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtNetwork/qtnetwork-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/QSharedDataPointer \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/QString \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/QUrl \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/QVariant \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmediaenumdebug.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmetaobject.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qaudio.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtNetwork/qnetworkconfiguration.h \
+		debug/moc_predefs.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/bin/moc.exe
+	F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include F:/Repositories/UI_Lab/2811_cw3-master-release-lowres/build/Desktop_Qt_5_15_2_MinGW_64_bit-Profile/debug/moc_predefs.h -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/mkspecs/win32-g++ -IF:/Repositories/UI_Lab/2811_cw3-master-release-lowres -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimediaWidgets -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtANGLE -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtNetwork -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore -I. -IF:/msy2/ucrt64/include/c++/13.2.0 -IF:/msy2/ucrt64/include/c++/13.2.0/x86_64-w64-mingw32 -IF:/msy2/ucrt64/include/c++/13.2.0/backward -IF:/msy2/ucrt64/lib/gcc/x86_64-w64-mingw32/13.2.0/include -IF:/msy2/ucrt64/include -IF:/msy2/ucrt64/lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed ..\..\timeline_slider.h -o debug\moc_timeline_slider.cpp
+
+debug/moc_volume_button.cpp: ../../volume_button.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/QPushButton \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qpushbutton.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qtwidgetsglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtguiglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qconfig-bootstrapped.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qconfig.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qtcore-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsystemdetection.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qprocessordetection.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcompilerdetection.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qtypeinfo.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsysinfo.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qlogging.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qflags.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qbasicatomic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic_bootstrap.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qgenericatomic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic_cxx11.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic_msvc.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qglobalstatic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmutex.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qnumeric.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qversiontagging.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtgui-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qtwidgets-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qabstractbutton.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qicon.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsize.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qnamespace.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmargins.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qlist.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qalgorithms.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qiterator.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qrefcount.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qarraydata.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qhashfunctions.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstring.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qchar.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qbytearray.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringliteral.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringalgorithms.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringview.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringbuilder.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qpair.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qvector.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcontainertools_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qpoint.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qbytearraylist.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringlist.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qregexp.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringmatcher.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpixmap.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpaintdevice.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qwindowdefs.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobjectdefs.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobjectdefs_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qwindowdefs_win.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qrect.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qcolor.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qrgb.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qrgba64.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsharedpointer.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qshareddata.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qhash.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsharedpointer_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobject.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcoreevent.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qscopedpointer.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmetatype.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qvarlengtharray.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcontainerfwd.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobject_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qimage.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpixelformat.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtransform.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qmatrix.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpolygon.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qregion.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qdatastream.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qiodevice.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qline.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qkeysequence.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qwidget.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpalette.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qbrush.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qfont.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qfontmetrics.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qfontinfo.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qsizepolicy.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qcursor.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qevent.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qvariant.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmap.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qdebug.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qtextstream.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qlocale.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qset.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcontiguouscache.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qurl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qurlquery.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qfile.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qfiledevice.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qvector2d.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/QMediaPlayer \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmediaplayer.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qtmultimediaglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qtmultimedia-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmediaobject.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmultimedia.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmediacontent.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmediaresource.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtNetwork/qnetworkrequest.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtNetwork/qtnetworkglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtNetwork/qtnetwork-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/QSharedDataPointer \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/QString \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/QUrl \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/QVariant \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmediaenumdebug.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmetaobject.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qaudio.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtNetwork/qnetworkconfiguration.h \
+		debug/moc_predefs.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/bin/moc.exe
+	F:\QT_Legacy\QT5.15\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include F:/Repositories/UI_Lab/2811_cw3-master-release-lowres/build/Desktop_Qt_5_15_2_MinGW_64_bit-Profile/debug/moc_predefs.h -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/mkspecs/win32-g++ -IF:/Repositories/UI_Lab/2811_cw3-master-release-lowres -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimediaWidgets -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtANGLE -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtNetwork -IF:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore -I. -IF:/msy2/ucrt64/include/c++/13.2.0 -IF:/msy2/ucrt64/include/c++/13.2.0/x86_64-w64-mingw32 -IF:/msy2/ucrt64/include/c++/13.2.0/backward -IF:/msy2/ucrt64/lib/gcc/x86_64-w64-mingw32/13.2.0/include -IF:/msy2/ucrt64/include -IF:/msy2/ucrt64/lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed ..\..\volume_button.h -o debug\moc_volume_button.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1626,8 +2014,379 @@ debug/tomeo.o: ../../tomeo.cpp F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtW
 		../../button_navigator.h \
 		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/QWidget \
 		../../previous_button.h \
-		../../next_button.h
+		../../next_button.h \
+		../../pause_toggle_button.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/QObject \
+		../../timeline_slider.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/QSlider \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qslider.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qabstractslider.h \
+		../../volume_button.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\tomeo.o ..\..\tomeo.cpp
+
+debug/pause_toggle_button.o: ../../pause_toggle_button.cpp ../../pause_toggle_button.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/QPushButton \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qpushbutton.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qtwidgetsglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtguiglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qconfig-bootstrapped.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qconfig.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qtcore-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsystemdetection.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qprocessordetection.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcompilerdetection.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qtypeinfo.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsysinfo.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qlogging.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qflags.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qbasicatomic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic_bootstrap.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qgenericatomic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic_cxx11.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic_msvc.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qglobalstatic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmutex.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qnumeric.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qversiontagging.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtgui-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qtwidgets-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qabstractbutton.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qicon.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsize.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qnamespace.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmargins.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qlist.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qalgorithms.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qiterator.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qrefcount.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qarraydata.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qhashfunctions.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstring.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qchar.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qbytearray.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringliteral.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringalgorithms.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringview.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringbuilder.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qpair.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qvector.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcontainertools_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qpoint.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qbytearraylist.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringlist.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qregexp.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringmatcher.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpixmap.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpaintdevice.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qwindowdefs.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobjectdefs.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobjectdefs_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qwindowdefs_win.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qrect.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qcolor.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qrgb.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qrgba64.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsharedpointer.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qshareddata.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qhash.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsharedpointer_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobject.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcoreevent.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qscopedpointer.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmetatype.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qvarlengtharray.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcontainerfwd.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobject_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qimage.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpixelformat.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtransform.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qmatrix.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpolygon.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qregion.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qdatastream.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qiodevice.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qline.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qkeysequence.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qwidget.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpalette.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qbrush.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qfont.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qfontmetrics.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qfontinfo.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qsizepolicy.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qcursor.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qevent.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qvariant.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmap.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qdebug.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qtextstream.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qlocale.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qset.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcontiguouscache.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qurl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qurlquery.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qfile.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qfiledevice.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qvector2d.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\pause_toggle_button.o ..\..\pause_toggle_button.cpp
+
+debug/timeline_slider.o: ../../timeline_slider.cpp ../../timeline_slider.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/QSlider \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qslider.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qtwidgetsglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtguiglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qconfig-bootstrapped.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qconfig.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qtcore-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsystemdetection.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qprocessordetection.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcompilerdetection.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qtypeinfo.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsysinfo.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qlogging.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qflags.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qbasicatomic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic_bootstrap.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qgenericatomic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic_cxx11.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic_msvc.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qglobalstatic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmutex.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qnumeric.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qversiontagging.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtgui-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qtwidgets-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qabstractslider.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qwidget.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qwindowdefs.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobjectdefs.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qnamespace.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobjectdefs_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qwindowdefs_win.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobject.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstring.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qchar.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qbytearray.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qrefcount.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qarraydata.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringliteral.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringalgorithms.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringview.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringbuilder.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qlist.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qalgorithms.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qiterator.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qhashfunctions.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qpair.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qvector.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcontainertools_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qpoint.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qbytearraylist.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringlist.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qregexp.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringmatcher.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcoreevent.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qscopedpointer.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmetatype.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qvarlengtharray.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcontainerfwd.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobject_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmargins.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpaintdevice.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qrect.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsize.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpalette.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qcolor.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qrgb.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qrgba64.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qbrush.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qmatrix.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpolygon.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qregion.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qdatastream.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qiodevice.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qline.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtransform.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qimage.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpixelformat.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpixmap.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsharedpointer.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qshareddata.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qhash.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsharedpointer_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qfont.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qfontmetrics.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qfontinfo.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qsizepolicy.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qcursor.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qkeysequence.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qevent.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qvariant.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmap.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qdebug.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qtextstream.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qlocale.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qset.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcontiguouscache.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qurl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qurlquery.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qfile.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qfiledevice.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qvector2d.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/QMediaPlayer \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmediaplayer.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qtmultimediaglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qtmultimedia-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmediaobject.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmultimedia.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmediacontent.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmediaresource.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtNetwork/qnetworkrequest.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtNetwork/qtnetworkglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtNetwork/qtnetwork-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/QSharedDataPointer \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/QString \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/QUrl \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/QVariant \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmediaenumdebug.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmetaobject.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qaudio.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtNetwork/qnetworkconfiguration.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\timeline_slider.o ..\..\timeline_slider.cpp
+
+debug/volume_button.o: ../../volume_button.cpp ../../volume_button.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/QPushButton \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qpushbutton.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qtwidgetsglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtguiglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qconfig-bootstrapped.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qconfig.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qtcore-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsystemdetection.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qprocessordetection.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcompilerdetection.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qtypeinfo.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsysinfo.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qlogging.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qflags.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qbasicatomic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic_bootstrap.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qgenericatomic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic_cxx11.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qatomic_msvc.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qglobalstatic.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmutex.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qnumeric.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qversiontagging.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtgui-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qtwidgets-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qabstractbutton.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qicon.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsize.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qnamespace.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmargins.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qlist.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qalgorithms.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qiterator.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qrefcount.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qarraydata.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qhashfunctions.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstring.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qchar.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qbytearray.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringliteral.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringalgorithms.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringview.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringbuilder.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qpair.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qvector.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcontainertools_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qpoint.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qbytearraylist.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringlist.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qregexp.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qstringmatcher.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpixmap.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpaintdevice.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qwindowdefs.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobjectdefs.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobjectdefs_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qwindowdefs_win.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qrect.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qcolor.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qrgb.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qrgba64.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsharedpointer.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qshareddata.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qhash.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qsharedpointer_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobject.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcoreevent.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qscopedpointer.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmetatype.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qvarlengtharray.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcontainerfwd.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qobject_impl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qimage.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpixelformat.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtransform.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qmatrix.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpolygon.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qregion.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qdatastream.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qiodevice.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qline.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qkeysequence.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qwidget.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qpalette.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qbrush.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qfont.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qfontmetrics.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qfontinfo.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtWidgets/qsizepolicy.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qcursor.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qevent.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qvariant.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmap.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qdebug.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qtextstream.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qlocale.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qset.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qcontiguouscache.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qurl.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qurlquery.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qfile.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qfiledevice.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qvector2d.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/QMediaPlayer \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmediaplayer.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qtmultimediaglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qtmultimedia-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmediaobject.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmultimedia.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmediacontent.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmediaresource.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtNetwork/qnetworkrequest.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtNetwork/qtnetworkglobal.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtNetwork/qtnetwork-config.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/QSharedDataPointer \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/QString \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/QUrl \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/QVariant \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qmediaenumdebug.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtCore/qmetaobject.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtMultimedia/qaudio.h \
+		F:/QT_Legacy/QT5.15/5.15.2/mingw81_64/include/QtNetwork/qnetworkconfiguration.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\volume_button.o ..\..\volume_button.cpp
 
 debug/moc_the_button.o: debug/moc_the_button.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_the_button.o debug\moc_the_button.cpp
@@ -1643,6 +2402,15 @@ debug/moc_previous_button.o: debug/moc_previous_button.cpp
 
 debug/moc_button_navigator.o: debug/moc_button_navigator.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_button_navigator.o debug\moc_button_navigator.cpp
+
+debug/moc_pause_toggle_button.o: debug/moc_pause_toggle_button.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_pause_toggle_button.o debug\moc_pause_toggle_button.cpp
+
+debug/moc_timeline_slider.o: debug/moc_timeline_slider.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_timeline_slider.o debug\moc_timeline_slider.cpp
+
+debug/moc_volume_button.o: debug/moc_volume_button.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_volume_button.o debug\moc_volume_button.cpp
 
 ####### Install
 
