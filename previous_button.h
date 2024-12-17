@@ -8,7 +8,7 @@ class PreviousButton : public QPushButton {
     Q_OBJECT
 
 public:
-    PreviousButton(ThePlayer* player, QWidget* parent = nullptr);
+    explicit PreviousButton(ThePlayer* player, QWidget* parent = nullptr);
 
 private slots:
     void handleClick();
