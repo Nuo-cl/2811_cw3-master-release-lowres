@@ -1,4 +1,4 @@
-QT += core gui widgets multimedia multimediawidgets
+QT += core gui widgets multimedia multimediawidgets sql
 
 CONFIG += c++11
 
@@ -21,7 +21,9 @@ SOURCES += \
     tomeo.cpp \
     pause_toggle_button.cpp \
     timeline_slider.cpp \
-    volume_button.cpp
+    volume_button.cpp \
+    fullscreen_event_filter.cpp \
+    comment_sidebar.cpp
 
 HEADERS += \
     fast_forward_button.h \
@@ -36,7 +38,9 @@ HEADERS += \
     button_navigator.h \
     pause_toggle_button.h \
     timeline_slider.h \
-    volume_button.h
+    volume_button.h \
+    fullscreen_event_filter.h \
+    comment_sidebar.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

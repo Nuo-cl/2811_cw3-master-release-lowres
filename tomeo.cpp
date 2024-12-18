@@ -37,6 +37,9 @@
 #include "fast_rewind_button.h"
 #include "speed_control_button.h"
 #include "language_selector.h"
+#include <QKeyEvent>
+#include "fullscreen_event_filter.h"
+#include "comment_sidebar.h"
 
 // Function to rearrange buttons
 // void rearrangeButtons(std::vector<TheButton*>& buttons, std::vector<TheButtonInfo>& videos, int startIndex, int buttonsPerPage) {
@@ -91,10 +94,10 @@ std::vector<TheButtonInfo> getInfoIn (std::string loc) {
 }
 
 void updateText(QPushButton* previousButton, QPushButton* nextButton, PauseToggleButton* pauseButton, QPushButton* languageButton, QPushButton* fastRewindButton, QPushButton* fastForwardButton, QPushButton* restartButton, QPushButton* speedControlButton, QPushButton* volumeControlButton, const QString& language) {
-    if (language == "中文") {
+    if (language == "中文" || language == "语言") {
         previousButton->setText("上一个视频");
         nextButton->setText("下一个视频");
-        pauseButton->setText("暂停");
+        pauseButton->setText(pauseButton->Paused() ? "恢复" : "暂停");
         languageButton->setText("语言");
         fastRewindButton->setText("快退");
         fastForwardButton->setText("快进");
@@ -104,7 +107,7 @@ void updateText(QPushButton* previousButton, QPushButton* nextButton, PauseToggl
     } else {
         previousButton->setText("Previous");
         nextButton->setText("Next");
-        pauseButton->setText("Pause");
+        pauseButton->setText(pauseButton->Paused() ? "Resume" : "Pause");
         languageButton->setText("Select Language");
         fastRewindButton->setText("Rewind");
         fastForwardButton->setText("Fast Forward");
@@ -152,7 +155,6 @@ int main(int argc, char *argv[]) {
     // create the main window and layout
     QWidget window;
     QVBoxLayout *top = new QVBoxLayout();
-    window.setLayout(top);
     window.setWindowTitle("tomeo");
     window.setMinimumSize(800, 680);
 
@@ -330,6 +332,105 @@ int main(int argc, char *argv[]) {
 
     updateText(previousButton, nextButton, pauseButton, languageButton, fastRewindButton, fastForwardButton, restartButton, speedControlButton, volumeControlButton, "English");
 
+    // 定义全屏状态变量
+    bool isVideoFullscreen = false;
+
+    // 添加全屏按钮
+    QPushButton* fullscreenButton = new QPushButton(&window);
+    fullscreenButton->setIcon(QIcon(":/icons/icons/fullscreen.svg")); // 设置图标
+    fullscreenButton->setText("全屏");
+    fullscreenButton->setFlat(true); // 隐藏按钮边框
+    fullscreenButton->setIconSize(QSize(36, 36)); // 设置图标大小
+
+    // 将全屏按钮添加到暂停和音量控制的布局中
+    pauseVolumeLayout->addWidget(fullscreenButton);
+
+    // 连接全屏按钮的点击信号到槽函数
+    QObject::connect(fullscreenButton, &QPushButton::clicked, [&isVideoFullscreen, &window, &top, &videoWidget, &timelineSlider, &controlWidget, &pauseVolumeWidget, &buttonWidget, &navigatorWidget, &languageButton, &fullscreenButton]() {
+        if (!isVideoFullscreen) {
+            // 隐藏其他控件
+            timelineSlider->setVisible(false);
+            controlWidget->setVisible(false);
+            pauseVolumeWidget->setVisible(false);
+            buttonWidget->setVisible(false);
+            navigatorWidget->setVisible(false);
+            languageButton->setVisible(false);
+            
+            // 让 videoWidget 占满整个窗口
+            top->removeWidget(videoWidget);
+            videoWidget->setParent(&window);
+            top->addWidget(videoWidget, 1); // 设置���缩因子为1，使其占满空间
+            
+            // 修改按钮文本为“退出全屏”
+            fullscreenButton->setText("退出全屏");
+            
+            isVideoFullscreen = true;
+        } else {
+            // 显示其他控件
+            timelineSlider->setVisible(true);
+            controlWidget->setVisible(true);
+            pauseVolumeWidget->setVisible(true);
+            buttonWidget->setVisible(true);
+            navigatorWidget->setVisible(true);
+            languageButton->setVisible(true);
+            
+            // 恢复 videoWidget 的原始位置
+            top->removeWidget(videoWidget);
+            videoWidget->setParent(buttonWidget);
+            top->insertWidget(0, videoWidget); // 插入回原来的位置
+            
+            // 修改按钮文本为“全屏”
+            fullscreenButton->setText("全屏");
+            
+            isVideoFullscreen = false;
+        }
+    });
+
+    // 安装事件过滤器以捕捉 Esc 键
+    FullscreenEventFilter* filter = new FullscreenEventFilter(&isVideoFullscreen, &window, top, videoWidget, 
+                                                              timelineSlider, controlWidget, pauseVolumeWidget, 
+                                                              buttonWidget, navigatorWidget, languageButton, 
+                                                              fullscreenButton);
+    window.installEventFilter(filter);
+
+    // 创建“点赞”和“收藏”按钮
+    QPushButton* likeButton = new QPushButton("点赞 👍", &window);
+    // likeButton->setIcon(QIcon(":/icons/icons/like.svg")); // 移除图标设置
+    // likeButton->setIconSize(QSize(36, 36)); // 移除图标大小设置
+
+    QPushButton* favoriteButton = new QPushButton("收藏 ⭐️", &window);
+    // favoriteButton->setIcon(QIcon(":/icons/icons/favorite.svg")); // 移除图标设置
+    // favoriteButton->setIconSize(QSize(36, 36)); // 移除图标大小设置
+
+    // 创建一个布局来放置“点赞”和“收藏”按钮，并对齐到右上方
+    QHBoxLayout* favoriteLayout = new QHBoxLayout();
+    favoriteLayout->setAlignment(Qt::AlignRight | Qt::AlignTop);
+    favoriteLayout->addWidget(likeButton);
+    favoriteLayout->addWidget(favoriteButton);
+
+    // 将布局添加到视频上方
+    top->insertLayout(0, favoriteLayout); // 在最顶部插入
+
+    // 连接 ThePlayer 的信号到槽，以更新按钮的背景颜色
+    QObject::connect(player, &ThePlayer::likeStatusChanged, [likeButton](bool liked) {
+        if (liked) {
+            likeButton->setStyleSheet("background-color: red;");
+        } else {
+            likeButton->setStyleSheet("");
+        }
+    });
+
+    QObject::connect(player, &ThePlayer::favoriteStatusChanged, [favoriteButton](bool favorited) {
+        if (favorited) {
+            favoriteButton->setStyleSheet("background-color: yellow;");
+        } else {
+            favoriteButton->setStyleSheet("");
+        }
+    });
+
+    // 连接按钮信号到槽，由 ThePlayer 处理点赞和收藏逻辑
+    QObject::connect(likeButton, &QPushButton::clicked, player, &ThePlayer::likeCurrentVideo);
+    QObject::connect(favoriteButton, &QPushButton::clicked, player, &ThePlayer::favoriteCurrentVideo);
 
     // add the video and the buttons to the top level widget
     top->addWidget(videoWidget);
@@ -359,8 +460,42 @@ int main(int argc, char *argv[]) {
         }
     });
 
+    QObject::connect(pauseButton, &PauseToggleButton::toggled, [&]() {
+        QString currentLanguage = languageButton->text();
+        updateText(previousButton, nextButton, pauseButton, languageButton, fastRewindButton, fastForwardButton, restartButton, speedControlButton, volumeControlButton, currentLanguage);
+    });
+    
 
-    // showtime!
+
+    CommentSidebar* commentSidebar = new CommentSidebar(&window);
+    commentSidebar->hide();
+
+    QPushButton* commentButton = new QPushButton("评论", &window);
+    commentButton->setIcon(QIcon(":/icons/icons/comment_24dp_5F6368.svg")); 
+    commentButton->setFlat(true);
+    commentButton->setIconSize(QSize(36, 36));
+
+    // 将评论按钮添加到现有布局中
+    pauseVolumeLayout->addWidget(commentButton);
+
+    // 连接信号和槽
+    QObject::connect(commentButton, &QPushButton::clicked, [commentSidebar]() {
+        if (commentSidebar->isVisible()) {
+            commentSidebar->hide();
+        } else {
+            commentSidebar->show();
+        }
+    });
+
+    QObject::connect(player, &ThePlayer::videoPathChanged, commentSidebar, &CommentSidebar::loadComments);
+
+    // 创建一个主布局，并添加 top 和 commentSidebar
+    QHBoxLayout* mainLayout = new QHBoxLayout();
+    mainLayout->addLayout(top);
+    mainLayout->addWidget(commentSidebar);
+    window.setLayout(mainLayout);
+
+        // showtime!
     window.show();
 
     // wait for the app to terminate

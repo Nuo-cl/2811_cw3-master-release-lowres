@@ -1,6 +1,7 @@
 #include "speed_control_button.h"
 #include <QMessageBox>
 #include <QActionGroup>
+#include <QDebug>
 
 SpeedControlButton::SpeedControlButton(QMediaPlayer* player, QWidget* parent)
     : QPushButton(parent), player(player) {
@@ -39,18 +40,16 @@ void SpeedControlButton::setPlaybackRate(QAction* action) {
     bool ok;
     qreal rate = action->text().remove('x').toDouble(&ok);
     if (ok) {
+        qDebug() << "尝试设置播放速度为:" << rate;
         player->setPlaybackRate(rate);
         if (player->playbackRate() != rate) {
-            QMessageBox::warning(this, "Unsupported Rate", QString("Audio device or filter does not support rate: %1").arg(rate));
+            QMessageBox::warning(this, "不支持的速度", QString("音频设备或过滤器不支持速度: %1").arg(rate));
         } else {
-            // 更新选中项的背景颜色
+            // 更新选中项的状态
             for (QAction* act : speedMenu->actions()) {
-                if (act == action) {
-                    act->setChecked(true);
-                } else {
-                    act->setChecked(false);
-                }
+                act->setChecked(act == action);
             }
+            qDebug() << "播放速度已设置为:" << player->playbackRate();
         }
     }
 }
