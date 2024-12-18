@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>icons/pause_24dp_5F6368.svg</file>
+        <file>icons/play_arrow_24dp_5F6368.svg</file>
+        <file>icons/navigate_before_24dp_5F6368.svg</file>
+        <file>icons/navigate_next_24dp_5F6368.svg</file>
+        <file>icons/volume_up_24dp_5F6368.svg</file>
+        <file>icons/restart_alt_24dp_5F6368.svg</file>
+        <file>icons/fast_forward_24dp_5F6368.svg</file>
+        <file>icons/fast_rewind_24dp_5F6368.svg</file>
+        <file>icons/rocket_launch_24dp_5F6368.svg</file>
+        <file>icons/language_24dp_5F6368.svg</file>
+    </qresource>
+</RCC>
