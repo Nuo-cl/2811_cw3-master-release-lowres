@@ -10,6 +10,7 @@ CONFIG += c++11
 SOURCES += \
     fast_forward_button.cpp \
     fast_rewind_button.cpp \
+    language_selector.cpp \
     restart_button.cpp \
     speed_control_button.cpp \
     the_button.cpp \
@@ -25,6 +26,7 @@ SOURCES += \
 HEADERS += \
     fast_forward_button.h \
     fast_rewind_button.h \
+    language_selector.h \
     restart_button.h \
     speed_control_button.h \
     the_button.h \
