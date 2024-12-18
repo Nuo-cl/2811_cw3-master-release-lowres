@@ -9,6 +9,7 @@ class PauseToggleButton : public QPushButton {
 
 public:
     explicit PauseToggleButton(QWidget *parent = nullptr);
+    bool Paused();
 
 signals:
     void toggled(bool paused);

@@ -15,3 +15,7 @@ void PauseToggleButton::handleButtonClick() {
     setText(isPaused ? "Resume" : "Pause");
     emit toggled(isPaused);
 }
+
+bool PauseToggleButton::Paused() {
+    return isPaused;
+}

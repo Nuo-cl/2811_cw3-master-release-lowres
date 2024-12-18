@@ -14,6 +14,6 @@ void RestartButton::handleButtonClick() {
 
     // 重置暂停按钮状态
     pauseButton->setChecked(false);
-    pauseButton->setIcon(QIcon(":/icons/icons/pause_24dp_5F6368.svg"));
+    pauseButton->setIcon(QIcon(":/icons/icons/pause_24dp_5F6368.svg")); // 设置暂停按钮的图标
     pauseButton->setText("Pause");
 }
