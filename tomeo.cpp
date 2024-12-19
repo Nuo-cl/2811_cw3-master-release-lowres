@@ -93,7 +93,13 @@ std::vector<TheButtonInfo> getInfoIn (std::string loc) {
     return out;
 }
 
-void updateText(QPushButton* previousButton, QPushButton* nextButton, PauseToggleButton* pauseButton, QPushButton* languageButton, QPushButton* fastRewindButton, QPushButton* fastForwardButton, QPushButton* restartButton, QPushButton* speedControlButton, QPushButton* volumeControlButton, const QString& language) {
+void updateText(QPushButton* previousButton, QPushButton* nextButton, 
+                PauseToggleButton* pauseButton, QPushButton* languageButton,
+                QPushButton* fastRewindButton, QPushButton* fastForwardButton,
+                QPushButton* restartButton, QPushButton* speedControlButton,
+                QPushButton* volumeControlButton, QPushButton* fullscreenButton,
+                QPushButton* likeButton, QPushButton* favoriteButton, QPushButton* commentButton,
+                const QString& language) {
     if (language == "中文" || language == "语言") {
         previousButton->setText("上一个视频");
         nextButton->setText("下一个视频");
@@ -104,6 +110,10 @@ void updateText(QPushButton* previousButton, QPushButton* nextButton, PauseToggl
         restartButton->setText("重播");
         speedControlButton->setText("倍速");
         volumeControlButton->setText("音量");
+        fullscreenButton->setText("全屏");
+        likeButton->setText("点赞 👍");
+        favoriteButton->setText("收藏 ⭐️");
+        commentButton->setText("评论");
     } else {
         previousButton->setText("Previous");
         nextButton->setText("Next");
@@ -114,6 +124,10 @@ void updateText(QPushButton* previousButton, QPushButton* nextButton, PauseToggl
         restartButton->setText("Replay");
         speedControlButton->setText("Speed");
         volumeControlButton->setText("Volume");
+        fullscreenButton->setText("Fullscreen");
+        likeButton->setText("Like 👍");
+        favoriteButton->setText("Favorite ⭐️");
+        commentButton->setText("Comment");
     }
 }
 
@@ -324,14 +338,6 @@ int main(int argc, char *argv[]) {
     // tell the player what buttons and videos are available
     player->setContent(&buttons, &videos);
 
-    // Create the language selection button
-    QPushButton* languageButton = new QPushButton();
-
-    // Create the language selector
-    LanguageSelector languageSelector(languageButton, std::bind(updateText, previousButton, nextButton, pauseButton, languageButton, fastRewindButton, fastForwardButton, restartButton, speedControlButton, volumeControlButton, std::placeholders::_1));
-
-    updateText(previousButton, nextButton, pauseButton, languageButton, fastRewindButton, fastForwardButton, restartButton, speedControlButton, volumeControlButton, "English");
-
     // 定义全屏状态变量
     bool isVideoFullscreen = false;
 
@@ -344,6 +350,8 @@ int main(int argc, char *argv[]) {
 
     // 将全屏按钮添加到暂停和音量控制的布局中
     pauseVolumeLayout->addWidget(fullscreenButton);
+
+    QPushButton* languageButton = new QPushButton();
 
     // 连接全屏按钮的点击信号到槽函数
     QObject::connect(fullscreenButton, &QPushButton::clicked, [&isVideoFullscreen, &window, &top, &videoWidget, &timelineSlider, &controlWidget, &pauseVolumeWidget, &buttonWidget, &navigatorWidget, &languageButton, &fullscreenButton]() {
@@ -428,45 +436,6 @@ int main(int argc, char *argv[]) {
         }
     });
 
-    // 连接按钮信号到槽，由 ThePlayer 处理点赞和收藏逻辑
-    QObject::connect(likeButton, &QPushButton::clicked, player, &ThePlayer::likeCurrentVideo);
-    QObject::connect(favoriteButton, &QPushButton::clicked, player, &ThePlayer::favoriteCurrentVideo);
-
-    // add the video and the buttons to the top level widget
-    top->addWidget(videoWidget);
-    top->addWidget(timelineSlider);
-    top->addWidget(controlWidget); // 添加控制行小部件
-    top->addWidget(pauseVolumeWidget); // 添加暂停和音量控制小部件
-    top->addWidget(buttonWidget);
-    top->addWidget(navigatorWidget);
-    top->addWidget(languageButton);
-    top->addWidget(controlWidget);
-
-    // Connect the previous button click event
-    QObject::connect(previousButton, &QPushButton::clicked, [pauseButton, player]() {
-        player->playPrevious();
-        if (!pauseButton->isChecked()) {
-            pauseButton->setIcon(QIcon(":/icons/icons/pause_24dp_5F6368.svg")); // 重置图标为播放图标
-            pauseButton->setText("Pause"); // 重置文本为 "Play"
-        }
-    });
-
-    // Connect the next button click event
-    QObject::connect(nextButton, &QPushButton::clicked, [pauseButton, player]() {
-        player->playNext();
-        if (!pauseButton->isChecked()) {
-            pauseButton->setIcon(QIcon(":/icons/icons/pause_24dp_5F6368.svg")); // 重置图标为播放图标
-            pauseButton->setText("Pause"); // 重置文本为 "Play"
-        }
-    });
-
-    QObject::connect(pauseButton, &PauseToggleButton::toggled, [&]() {
-        QString currentLanguage = languageButton->text();
-        updateText(previousButton, nextButton, pauseButton, languageButton, fastRewindButton, fastForwardButton, restartButton, speedControlButton, volumeControlButton, currentLanguage);
-    });
-    
-
-
     CommentSidebar* commentSidebar = new CommentSidebar(&window);
     commentSidebar->hide();
 
@@ -494,6 +463,65 @@ int main(int argc, char *argv[]) {
     mainLayout->addLayout(top);
     mainLayout->addWidget(commentSidebar);
     window.setLayout(mainLayout);
+
+    // Create the language selector
+    LanguageSelector languageSelector(languageButton, std::bind(updateText, previousButton, nextButton,
+                                                                pauseButton, languageButton, fastRewindButton,
+                                                                fastForwardButton, restartButton,
+                                                                speedControlButton, volumeControlButton,
+                                                                fullscreenButton, likeButton, favoriteButton,
+                                                                commentButton,
+                                                                std::placeholders::_1));
+
+    updateText(previousButton, nextButton, 
+            pauseButton, languageButton,
+            fastRewindButton, fastForwardButton,
+            restartButton, speedControlButton, volumeControlButton,
+            fullscreenButton, likeButton, favoriteButton, commentButton,
+            "English");
+
+        // Connect the previous button click event
+    QObject::connect(previousButton, &QPushButton::clicked, [pauseButton, player]() {
+        player->playPrevious();
+        if (!pauseButton->isChecked()) {
+            pauseButton->setIcon(QIcon(":/icons/icons/pause_24dp_5F6368.svg")); // 重置图标为播放图标
+            pauseButton->setText("Pause"); // 重置文本为 "Play"
+        }
+    });
+
+    // Connect the next button click event
+    QObject::connect(nextButton, &QPushButton::clicked, [pauseButton, player]() {
+        player->playNext();
+        if (!pauseButton->isChecked()) {
+            pauseButton->setIcon(QIcon(":/icons/icons/pause_24dp_5F6368.svg")); // 重置图标为播放图标
+            pauseButton->setText("Pause"); // 重置文本为 "Play"
+        }
+    });
+
+    QObject::connect(pauseButton, &PauseToggleButton::toggled, [&]() {
+        QString currentLanguage = languageButton->text();
+        updateText(previousButton, nextButton, pauseButton,
+            languageButton, fastRewindButton,
+            fastForwardButton, restartButton,
+            speedControlButton, volumeControlButton,
+            fullscreenButton, likeButton, favoriteButton, commentButton,
+            currentLanguage);
+    });
+    
+
+    // 连接按钮信号到槽，由 ThePlayer 处理点赞和收藏逻辑
+    QObject::connect(likeButton, &QPushButton::clicked, player, &ThePlayer::likeCurrentVideo);
+    QObject::connect(favoriteButton, &QPushButton::clicked, player, &ThePlayer::favoriteCurrentVideo);
+
+    // add the video and the buttons to the top level widget
+    top->addWidget(videoWidget);
+    top->addWidget(timelineSlider);
+    top->addWidget(controlWidget); // 添加控制行小部件
+    top->addWidget(pauseVolumeWidget); // 添加暂停和音量控制小部件
+    top->addWidget(buttonWidget);
+    top->addWidget(navigatorWidget);
+    top->addWidget(languageButton);
+    top->addWidget(controlWidget);
 
         // showtime!
     window.show();
