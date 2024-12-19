@@ -22,6 +22,7 @@ bool FullscreenEventFilter::eventFilter(QObject* obj, QEvent* event) {
             fullscreenButton->setText("全屏");
             fullscreenButton->setIcon(QIcon(":/icons/icons/fullscreen_24dp_5F6368.svg"));
             fullscreenButton->setIconSize(QSize(36, 36));
+
             
             *isVideoFullscreen = false;
             return true; // 事件已处理
