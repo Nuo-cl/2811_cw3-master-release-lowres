@@ -9,6 +9,10 @@
         <file>icons/fast_forward_24dp_5F6368.svg</file>
         <file>icons/fast_rewind_24dp_5F6368.svg</file>
         <file>icons/rocket_launch_24dp_5F6368.svg</file>
+        <file>icons/comment_24dp_5F6368.svg</file>
         <file>icons/language_24dp_5F6368.svg</file>
+        <file>icons/fullscreen_24dp_5F6368.svg</file>
+        <file>icons/thumb_up_24dp_5F6368.svg</file>
+        <file>icons/star_24dp_5F6368.svg</file>
     </qresource>
 </RCC>
